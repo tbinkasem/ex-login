@@ -16,20 +16,15 @@
     <%
 
         if(request.getParameter("Submit") != null){
-
-            String Username = request.getParameter("Username");
-            if(Username == "admin"){
-                session.setAttribute("user_admin",Username);
-            }else if(Username == "user"){
-                session.setAttribute("user_user",Username);
-            }
+            String user = request.getParameter("Username");
+            session.setAttribute("user_login", user);
     %>
     <jsp:forward page="ex_process_login.jsp" />
     <%
         }else{
 
     %>
-    <form action="ex_process_login.jsp" method="post">
+    <form action="ex_login.jsp" method="post">
         <table>
             <tr>
                 <th colspan="2">Login System</th>
@@ -37,13 +32,13 @@
             <tr>
                 <th>Username : </th>
                 <td>
-                    <input type="text" name="username">
+                    <input type="text" name="Username">
                 </td>
             </tr>
             <tr>
                 <th>Password : </th>
                 <td>
-                    <input type="password" name="password">
+                    <input type="password" name="Password">
                 </td>
             </tr>
             <tr>
